@@ -1,5 +1,34 @@
 import { createTheme } from "@mui/material";
 
+declare module '@mui/material/styles/createPalette' {
+    // interface Palette {
+    //     inputBg: {
+    //     main?: string;
+    //   },
+    //   neutral: {
+    //     main?: string;
+    //     contrastText?: string;
+    //   },
+    //   orange: {
+    //     main?: string;
+    //     contrastText?: string;
+    //   },
+    // }
+    interface PaletteOptions {
+        inputBg: {
+          main?: string;
+        },
+        neutral: {
+          main?: string;
+          contrastText?: string;
+        },
+        orange: {
+          main?: string;
+          contrastText?: string;
+        },
+    }
+  }
+
 export const themeOrange = '#ff6660'
 export const themeBlue = '#1f0b4f'
 
@@ -8,7 +37,10 @@ export const lightTheme = createTheme({
     mode: "light",
     background: {
       paper: "#e6ebfc",
-      inputBg: "#e6ebfc"
+      // inputBg: "#e6ebfc"
+    },
+    inputBg: {
+      main: "#e6ebfc"
     },
     text: {
       primary: "#11111",
@@ -27,15 +59,15 @@ export const lightTheme = createTheme({
       color: '#2b1e66'
     }
   },
-  custom: {
-    registerForm: {
-      formInput: {
-        color: '#6678ad',
-        background: '#e6ebfc',
-        outline: 'none'
-      }
-    }
-  }
+  // custom: {
+  //   registerForm: {
+  //     formInput: {
+  //       color: '#6678ad',
+  //       background: '#e6ebfc',
+  //       outline: 'none'
+  //     }
+  //   }
+  // }
 });
 
 export const darkTheme = createTheme({
@@ -43,7 +75,9 @@ export const darkTheme = createTheme({
     mode: "dark",
     background: {
       paper: "#3f365a",
-      inputBg: "#40355a"
+    },
+    inputBg:{ 
+      main: "#40355a"
     },
     text: {
       primary: "#fff",
@@ -57,13 +91,13 @@ export const darkTheme = createTheme({
       contrastText: '#fff',
     },
   },
-  custom: {
-    registerForm: {
-      formInput: {
-        color: '#fff',
-        background: '#40355a',
-        outline: 'none'
-      }
-    }
-  }
+  // custom: {
+  //   registerForm: {
+  //     formInput: {
+  //       color: '#fff',
+  //       background: '#40355a',
+  //       outline: 'none'
+  //     }
+  //   }
+  // }
 })

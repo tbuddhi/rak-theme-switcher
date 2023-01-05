@@ -12,7 +12,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import ExploreIcon from '@mui/icons-material/Explore';
 
-import { toggleTheme } from "../redux/themeSlice";
+import { toggleTheme } from '../redux/reducers/themeSlice';
 import { themeBlue, themeOrange } from '../theme/theme';
 
 const CustomSwitch = styled(Switch)({
@@ -59,7 +59,7 @@ const CustomSubtitle = styled(Typography)({
 })
 
 const ThemeSwitcher = () => {
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector((state: any) => state.theme);
 
   const dispatch = useDispatch();
 
@@ -85,7 +85,7 @@ const ThemeSwitcher = () => {
         sx={{ py: 3 }}
       >
         <CustomSubtitle variant="subtitle1">
-          Travelguru <ExploreIcon fontSize='2' sx={{ ml: 1}} />
+          Travelguru <ExploreIcon fontSize='small' sx={{ ml: 1}} />
         </CustomSubtitle>
         <ToggleSwitch />
       </Stack>

@@ -19,15 +19,21 @@ const SocialMediaButtons = () => {
       <Typography color='GrayText' variant="overline" display='flex' justifyContent='center' py={2}>- OR -</Typography>
       <Stack direction="row" spacing={2}>
         <Box flex={5}>
-          <Button disableElevation color='neutral' size="large" fullWidth sx={{ fontSize: '0.6em' }} variant="contained" startIcon={<GoogleIcon htmlColor='#EA4335' />} >
+          <Button disableElevation 
+          // color='neutral' 
+          size="large" fullWidth sx={{ fontSize: '0.6em' }} variant="contained" startIcon={<GoogleIcon htmlColor='#EA4335' />} >
             Sign in with Google
           </Button>
         </Box>
         <Box flex={1} >
-          <SquareButton disableElevation color='neutral' variant="contained" startIcon={<FacebookIcon htmlColor='#4267B2' />}></SquareButton>
+          <SquareButton disableElevation 
+          // color='neutral' 
+          variant="contained" startIcon={<FacebookIcon htmlColor='#4267B2' />}></SquareButton>
         </Box>
         <Box flex={1} >
-          <SquareButton disableElevation color='neutral' variant="contained" startIcon={<AppleIcon />}></SquareButton>
+          <SquareButton disableElevation 
+          // color='neutral' 
+          variant="contained" startIcon={<AppleIcon />}></SquareButton>
         </Box>
       </Stack>
     </Box>

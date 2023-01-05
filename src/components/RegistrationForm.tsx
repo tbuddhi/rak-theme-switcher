@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { useForm } from 'react-hook-form';
-import { object, string } from 'zod';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { object, string, TypeOf } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Button, Divider, IconButton, InputAdornment, Stack, styled, TextField, Typography } from '@mui/material'
 import { useTheme } from '@mui/system'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import axios from 'axios';
+
+type RegisterInput = TypeOf<typeof registerSchema>;
 
 const registerSchema = object({
   name: string()
@@ -26,7 +28,7 @@ const RegistrationForm = () => {
     marginBottom: '1rem',
     width: '100%',
     "& .MuiInputBase-root": {
-      backgroundColor: theme.palette.background?.inputBg
+      backgroundColor: theme.palette.inputBg.main
     }
   })
 
@@ -35,7 +37,7 @@ const RegistrationForm = () => {
     formState: { errors, isSubmitSuccessful },
     reset,
     handleSubmit,
-  } = useForm({
+  } = useForm<RegisterInput>({
     resolver: zodResolver(registerSchema),
   });
 
@@ -46,7 +48,7 @@ const RegistrationForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitSuccessful]);
 
-  const onSubmitHandler = (userInfo) => {
+  const onSubmitHandler: SubmitHandler<RegisterInput> = (userInfo) => {
 
     let mockApiUrl = "https://63b6557d58084a7af3af55c8.mockapi.io/api/users"
 
@@ -58,13 +60,13 @@ const RegistrationForm = () => {
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
+  const handleMouseDownPassword = (event: any) => {
     event.preventDefault();
   };
 
   return (
     <Box
-      sx={theme.custom.registerForm}
+      // sx={theme.custom.registerForm}
     >
       <Typography
         variant="h5"
@@ -143,16 +145,16 @@ const RegistrationForm = () => {
           }}
         />
 
-        <Button
+        {/* <Button
           variant='contained'
           fullWidth
           type='submit'
-          color="orange"
-          sx={{ height: 40 }}
+          sx={{ height: 40, color:'info' }}
           elevation={1}
         >
           Register
-        </Button>
+        </Button> */}
+        <Button type='submit' variant='contained' fullWidth>Register</Button>
       </Box>
     </Box>
   )

@@ -3,7 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 
 import { lightTheme, darkTheme } from "./theme/theme";
-import './App.scss';
+// import './App.scss';
 import Login from "./pages/Login";
 import { CssBaseline } from "@mui/material";
 
