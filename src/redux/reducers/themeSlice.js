@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit"
 export const themeSlice = createSlice({
     name: 'theme',
     initialState: {
-        darkTheme: false
+        darkTheme: !!JSON.parse(localStorage.getItem("darkMode")),
     },
     reducers: {
         toggleTheme: (state) => {
@@ -12,6 +12,13 @@ export const themeSlice = createSlice({
         }
     }
 })
+
+// Handle toggling theme mode and local storage using thunk function
+export const asyncToggleTheme = () => (dispatch) => {
+    const isDarkMode = !!JSON.parse(localStorage.getItem("darkMode"));
+    localStorage.setItem("darkMode", !isDarkMode);
+    dispatch(toggleTheme());
+};
 
 export const { toggleTheme } = themeSlice.actions
 

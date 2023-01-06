@@ -11,7 +11,7 @@ import {
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import ExploreIcon from '@mui/icons-material/Explore';
-import { toggleTheme } from '../redux/reducers/themeSlice';
+import { asyncToggleTheme } from '../redux/reducers/themeSlice';
 
 import { themeBlue, themeOrange } from '../theme/theme';
 
@@ -60,7 +60,7 @@ const CustomSubtitle = styled(Typography)({
 const ThemeSwitcher = () => {
   const theme = useSelector((state: any) => state.theme);
 
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
 
   // Custom toggle switch button
   const ToggleSwitch = () => {
@@ -70,7 +70,8 @@ const ThemeSwitcher = () => {
           icon={<LightModeOutlinedIcon />}
           checkedIcon={<ModeNightOutlinedIcon />}
           checked={theme.darkTheme}
-          onChange={() => dispatch(toggleTheme())}
+          // onChange={() => dispatch(toggleTheme())}
+          onChange={() => dispatch(asyncToggleTheme())}
         />
       </>
     )

@@ -34,7 +34,10 @@ const RegistrationForm = () => {
     width: '100%',
     color: theme.palette.custom.inputText,
     "& .MuiInputBase-root": {
-      backgroundColor: theme.palette.custom.inputBg
+      backgroundColor: theme.palette.custom.inputBg,
+      "& > fieldset":{
+        borderColor: 'transparent',
+      }
     }
   })
 
