@@ -1,11 +1,14 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Live [Demo](https://frabjous-marshmallow-5b65f5.netlify.app/)
 
+## API [Endpoit](https://63b6557d58084a7af3af55c8.mockapi.io/api/users)
+
+Steps to run: 
 In the project directory, you can run:
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
