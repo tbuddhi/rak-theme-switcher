@@ -7,8 +7,12 @@ import { useTheme } from '@mui/system'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import axios from 'axios';
 
+import { themeOrange } from '../theme/theme';
+
+// Define types
 type RegisterInput = TypeOf<typeof registerSchema>;
 
+// Define types and register schema using Zod object
 const registerSchema = object({
   name: string()
     .nonempty('Name is required')
@@ -24,14 +28,26 @@ const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme()
 
+  // Custom styles for the registration form input fields
   const LoginInputField = styled(TextField)({
     marginBottom: '1rem',
     width: '100%',
+    color: theme.palette.custom.inputText,
     "& .MuiInputBase-root": {
-      backgroundColor: theme.palette.inputBg.main
+      backgroundColor: theme.palette.custom.inputBg
     }
   })
 
+  // Custom styles for the submit button
+  const SubmitButton = styled(Button)({
+    backgroundColor: themeOrange,
+    color: '#fff',
+    width: '100%',
+    height: 40,
+    "&:hover": { backgroundColor: '#ff2f2f' }
+  })
+
+  // Destructuring useForm(react-hook-form) with Zod resolver
   const {
     register,
     formState: { errors, isSubmitSuccessful },
@@ -48,8 +64,8 @@ const RegistrationForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitSuccessful]);
 
+  // Handle user form submission to the mock API
   const onSubmitHandler: SubmitHandler<RegisterInput> = (userInfo) => {
-
     let mockApiUrl = "https://63b6557d58084a7af3af55c8.mockapi.io/api/users"
 
     axios.post(mockApiUrl, userInfo)
@@ -58,20 +74,15 @@ const RegistrationForm = () => {
       }).catch(err => console.log(err))
   };
 
+  // Handle password field visibility
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event: any) => {
     event.preventDefault();
   };
 
   return (
-    <Box
-      // sx={theme.custom.registerForm}
-    >
-      <Typography
-        variant="h5"
-        sx={{ fontWeight: 600, pt: 2 }}
-      >
+    <Box>
+      <Typography variant="h5" sx={{ fontWeight: 600, pt: 2 }} >
         Sign in to Travelguru
       </Typography>
 
@@ -81,21 +92,17 @@ const RegistrationForm = () => {
         spacing={1}
         pb={1}
       >
-        <Typography
-          variant="subtitle2"
-          sx={{ color: '#898989' }}
-        >
+        <Typography variant="subtitle2" sx={{ color: '#898989' }} >
           Don't have an account?
         </Typography>
-        <Button
-          variant="text"
-          sx={{ color: '#f76d73' }}
-        >
+        <Button variant="text" sx={{ color: '#f76d73' }} >
           Sign up
         </Button>
       </Stack>
+
       <Divider />
 
+      {/* Validated login form  */}
       <Box
         component='form'
         noValidate
@@ -144,17 +151,7 @@ const RegistrationForm = () => {
             )
           }}
         />
-
-        {/* <Button
-          variant='contained'
-          fullWidth
-          type='submit'
-          sx={{ height: 40, color:'info' }}
-          elevation={1}
-        >
-          Register
-        </Button> */}
-        <Button type='submit' variant='contained' fullWidth>Register</Button>
+        <SubmitButton type='submit' variant="contained" disableElevation>Register</SubmitButton>
       </Box>
     </Box>
   )

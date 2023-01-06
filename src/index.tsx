@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Redux configuration
+// Import Redux configuration and wrap the whole application
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 

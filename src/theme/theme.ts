@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material";
 
+export const themeOrange = '#ff5c5c'
+export const themeBlue = '#1f0b4f'
 declare module '@mui/material/styles/createPalette' {
     // interface Palette {
     //     inputBg: {
@@ -12,62 +14,42 @@ declare module '@mui/material/styles/createPalette' {
     //   orange: {
     //     main?: string;
     //     contrastText?: string;
-    //   },
+    //   }
     // }
     interface PaletteOptions {
-        inputBg: {
-          main?: string;
-        },
-        neutral: {
-          main?: string;
-          contrastText?: string;
-        },
-        orange: {
-          main?: string;
-          contrastText?: string;
-        },
+        custom: {
+          inputText?: string;
+          inputBg?: string;
+          smButtonBg?: string;
+          smButtonHoverBg?: string;
+        }
     }
   }
-
-export const themeOrange = '#ff6660'
-export const themeBlue = '#1f0b4f'
 
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
     background: {
       paper: "#e6ebfc",
-      // inputBg: "#e6ebfc"
-    },
-    inputBg: {
-      main: "#e6ebfc"
     },
     text: {
       primary: "#11111",
     },
-    neutral: {
-      main: '#fedfdd',
-      contrastText: '#3d253b',
-    },
-    orange: {
-      main: themeOrange,
-      contrastText: '#fff',
-    },
+    custom: {
+      inputText: '#2b1e66',
+      inputBg: '#e6ebfc',
+      smButtonBg: '#fedfdd',
+      smButtonHoverBg: '#ffb7b7'
+    }
   },
   typography: {
     h5: {
       color: '#2b1e66'
+    },
+    overline: {
+      color: '#6d6d6d',
     }
-  },
-  // custom: {
-  //   registerForm: {
-  //     formInput: {
-  //       color: '#6678ad',
-  //       background: '#e6ebfc',
-  //       outline: 'none'
-  //     }
-  //   }
-  // }
+  }
 });
 
 export const darkTheme = createTheme({
@@ -76,28 +58,27 @@ export const darkTheme = createTheme({
     background: {
       paper: "#3f365a",
     },
-    inputBg:{ 
-      main: "#40355a"
-    },
     text: {
       primary: "#fff",
     },
-    neutral: {
-      main: '#fff',
-      contrastText: '#3d253b',
-    },
-    orange: {
-      main: themeOrange,
-      contrastText: '#fff',
-    },
+    custom: {
+      inputBg: '#40355a',
+      smButtonBg: '#fff',
+      smButtonHoverBg: '#e0e0e0'
+    }
   },
-  // custom: {
-  //   registerForm: {
-  //     formInput: {
-  //       color: '#fff',
-  //       background: '#40355a',
-  //       outline: 'none'
-  //     }
-  //   }
-  // }
+  typography: {
+    overline: {
+      color: '#fff',
+    }
+  },
+  components: {
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: '#e6e6e6'
+        },
+      },
+    }
+  }
 })

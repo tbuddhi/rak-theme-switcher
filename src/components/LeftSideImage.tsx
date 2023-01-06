@@ -1,8 +1,8 @@
-import { Box } from '@mui/material'
 import React from 'react'
+import { Box } from '@mui/material'
+import { useSelector } from 'react-redux'
 import bgLight from '../static/bg_light.webp'
 import bgDark from '../static/bg_dark.webp'
-import { useSelector } from 'react-redux'
 
 const LeftSideImage = () => {
   const theme = useSelector((state:any) => state.theme)

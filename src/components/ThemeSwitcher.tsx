@@ -11,10 +11,11 @@ import {
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import ExploreIcon from '@mui/icons-material/Explore';
-
 import { toggleTheme } from '../redux/reducers/themeSlice';
+
 import { themeBlue, themeOrange } from '../theme/theme';
 
+// Custom style for the theme Switch button
 const CustomSwitch = styled(Switch)({
   width: 62,
   height: 32,
@@ -22,13 +23,13 @@ const CustomSwitch = styled(Switch)({
   '& .MuiSwitch-switchBase': {
     padding: 1,
     margin: 3,
-    // top: 'auto',
     transform: 'translateX(1px)',
     backgroundColor: themeBlue,
     color: themeOrange,
     '& .MuiSvgIcon-root': {
       padding: 4,
     },
+    "&:hover": { backgroundColor: themeBlue },
     '&.Mui-checked': {
       transform: 'translateX(28px)',
       backgroundColor: '#fff',
@@ -36,25 +37,23 @@ const CustomSwitch = styled(Switch)({
       '& + .MuiSwitch-track': {
         backgroundColor: 'transparent',
         border: '1px solid #fff',
-      }
+      },
+      "&:hover": { backgroundColor: '#fff' }
     }
   },
-  // '& .MuiSwitch-thumb': {
-  //   width: 26,
-  //   height: 26,
-  // },
   '& .MuiSwitch-track': {
     opacity: 1,
     backgroundColor: 'transparent',
     borderRadius: 30,
-    border: `1px solid ${themeBlue}`,
+    border: `1px solid ${themeBlue}`
   },
 })
 
+// Custom style for the subtitle
 const CustomSubtitle = styled(Typography)({
-  color: themeOrange, 
-  fontWeight: 600, 
-  display: 'flex', 
+  color: themeOrange,
+  fontWeight: 600,
+  display: 'flex',
   alignItems: 'center'
 })
 
@@ -63,6 +62,7 @@ const ThemeSwitcher = () => {
 
   const dispatch = useDispatch();
 
+  // Custom toggle switch button
   const ToggleSwitch = () => {
     return (
       <>
@@ -78,6 +78,7 @@ const ThemeSwitcher = () => {
 
   return (
     <Box >
+      {/* Top theme switcher box */}
       <Stack
         direction='row'
         justifyContent="space-between"
@@ -85,7 +86,8 @@ const ThemeSwitcher = () => {
         sx={{ py: 3 }}
       >
         <CustomSubtitle variant="subtitle1">
-          Travelguru <ExploreIcon fontSize='small' sx={{ ml: 1}} />
+          Travelguru
+          <ExploreIcon fontSize='small' sx={{ ml: 1 }} />
         </CustomSubtitle>
         <ToggleSwitch />
       </Stack>
