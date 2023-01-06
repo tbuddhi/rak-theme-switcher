@@ -8,6 +8,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import axios from 'axios';
 
 import { themeOrange } from '../theme/theme';
+import { toast } from 'react-toastify';
 
 // Define types
 type RegisterInput = TypeOf<typeof registerSchema>;
@@ -35,7 +36,7 @@ const RegistrationForm = () => {
     color: theme.palette.custom.inputText,
     "& .MuiInputBase-root": {
       backgroundColor: theme.palette.custom.inputBg,
-      "& > fieldset":{
+      "& > fieldset": {
         borderColor: 'transparent',
       }
     }
@@ -75,6 +76,8 @@ const RegistrationForm = () => {
       .then(res => {
         console.log(res.data)
       }).catch(err => console.log(err))
+
+    toast.success('User added successfully');
   };
 
   // Handle password field visibility
