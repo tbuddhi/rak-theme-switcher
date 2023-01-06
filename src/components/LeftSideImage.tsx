@@ -3,9 +3,10 @@ import { Box } from '@mui/material'
 import { useSelector } from 'react-redux'
 import bgLight from '../static/bg_light.webp'
 import bgDark from '../static/bg_dark.webp'
+import { RootState } from '../redux/store'
 
 const LeftSideImage = () => {
-  const theme = useSelector((state:any) => state.theme)
+  const theme = useSelector((state:RootState) => state.theme)
 
   return (
     <Box

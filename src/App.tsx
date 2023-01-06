@@ -5,9 +5,10 @@ import { CssBaseline } from "@mui/material";
 
 import Login from "./pages/Login";
 import { lightTheme, darkTheme } from "./theme/theme";
+import { RootState } from "./redux/store";
 
 function App() {
-  const theme = useSelector((state: any) => state.theme);
+  const theme = useSelector((state: RootState) => state.theme);
 
   return (
     // Use custom theme for the whole application with theme mode

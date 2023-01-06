@@ -7,6 +7,7 @@ import ThemeSwitcher from '../components/ThemeSwitcher'
 import LeftSideImage from '../components/LeftSideImage'
 import RegistrationForm from '../components/RegistrationForm'
 import SocialMediaButtons from '../components/SocialMediaButtons'
+import { RootState } from '../redux/store'
 
 // Custom style main login paper
 const LoginPaper = styled(Paper)({
@@ -24,7 +25,7 @@ const LoginStack = styled(Stack)({
 })
 
 const Login = () => {
-  const theme = useSelector((state: any) => state.theme)
+  const theme = useSelector((state: RootState) => state.theme)
   const bgColor = theme.darkTheme ? '#1f0b4f' : '#fff'
 
   return (

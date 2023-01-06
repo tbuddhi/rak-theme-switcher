@@ -79,7 +79,7 @@ const RegistrationForm = () => {
 
   // Handle password field visibility
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event: any) => {
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
   };
 

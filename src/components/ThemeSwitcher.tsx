@@ -14,6 +14,7 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import { asyncToggleTheme } from '../redux/reducers/themeSlice';
 
 import { themeBlue, themeOrange } from '../theme/theme';
+import { AppDispatch, RootState } from '../redux/store';
 
 // Custom style for the theme Switch button
 const CustomSwitch = styled(Switch)({
@@ -58,9 +59,9 @@ const CustomSubtitle = styled(Typography)({
 })
 
 const ThemeSwitcher = () => {
-  const theme = useSelector((state: any) => state.theme);
+  const theme = useSelector((state: RootState) => state.theme);
 
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   // Custom toggle switch button
   const ToggleSwitch = () => {
@@ -70,7 +71,6 @@ const ThemeSwitcher = () => {
           icon={<LightModeOutlinedIcon />}
           checkedIcon={<ModeNightOutlinedIcon />}
           checked={theme.darkTheme}
-          // onChange={() => dispatch(toggleTheme())}
           onChange={() => dispatch(asyncToggleTheme())}
         />
       </>
