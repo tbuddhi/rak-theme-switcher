@@ -157,7 +157,7 @@ const RegistrationForm = () => {
             )
           }}
         />
-        <SubmitButton type='submit' variant="contained" disableElevation>Register</SubmitButton>
+        <SubmitButton type='submit' variant="contained" disableElevation>Continue</SubmitButton>
       </Box>
     </Box>
   )
